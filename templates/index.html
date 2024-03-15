@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Blog Post</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			line-height: 1.6;
+			margin: 2em;
+		}
+		h1, h2 {
+			color: #333;
+		}
+		p {
+			margin-bottom: 1em;
+		}
+		table, th, td {
+			border: 1px solid;
+		  }
+	</style>
+</head>
+<body>
+	<h1>Welcome to My Blog</h1>
+	
+	<table>
+	
+		<tr>
+			<th>S.no</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>can vote</th>
+		</tr>
+
+		{% for people in peoples %}
+		<tr>
+		  <td>{{forloop.counter}}</td>
+		  <td>{{people.name}}</td>
+		  <td>{{people.age}}</td>
+		  <td>{%{% if people.age>18 %}
+			 Eligible
+			{% else %}
+			Not Eligible
+			{% endif %}%}</td>
+		</tr>
+		{% endfor %}
+		
+	  </table>
+</body>
+</html>
